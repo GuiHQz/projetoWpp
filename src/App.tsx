@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+
 import { ChatListItem } from "components/ChatListItem";
+import { ChatIntro } from "components/ChatIntro";
+import { ChatWindow } from "components/ChatWindow";
 //import "./App.styles.ts"
 import { Box } from "@material-ui/core";
 import DonutLargeIcon from "@material-ui/icons/DonutLarge";
@@ -10,8 +13,15 @@ import SearchIcon from "@material-ui/icons/Search";
 
 function App() {
 
-    const [chatlist, setChatList] = useState([{}, {}, {}, {}]);
+    const [chatlist, setChatList] = useState([
+        {chatId: 1, title: "Yugi", image: ""}, 
+        {chatId: 2, title: "Kaiba", image: ""}, 
+        {chatId: 3, title: "Jaden", image: ""}, 
+        {chatId: 4, title: "Aster", image: ""}, 
+        ]);
+    const [activeChat, setActiveChat] = useState({} as any);
     //const style = useStyles();
+    //Parei no minuto 1:14:33
 
     return (
         <Box className="app-window">
@@ -43,13 +53,20 @@ function App() {
                     {chatlist.map((item, key)=>(
                         <ChatListItem 
                             key={key}
+                            active={activeChat.chatId === chatlist[key]}
+                            onClick={()=>setActiveChat(chatlist[key])}
                         />
                     ))}
                 </Box>
 
             </Box>
             <Box className="contentarea">
-                Essa é a contentarea
+                {activeChat.chatId !== undefined &&
+                    <ChatWindow />
+                }
+                {activeChat.chatId === undefined &&
+                    <ChatIntro />
+                }
             </Box>
         </Box>
     );

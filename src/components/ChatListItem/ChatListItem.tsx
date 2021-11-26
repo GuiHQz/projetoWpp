@@ -1,15 +1,19 @@
 import React from "react";
-import "./ChatListItem.css"
 import { Box } from "@material-ui/core";
 import { useStyles } from "./ChatListItem.style";
 
-export const ChatListItem: React.FC = () => {
+interface onClickAction {
+    onClick: () => void,
+    active: boolean
+}
+
+export const ChatListItem: React.FC<onClickAction> = ({onClick, active}) => {
 
     const style = useStyles();
 
     return (
-        <Box className={style.chatListItem}>
-            <img className={style.chatListItem_Avatar} src="https://i.pinimg.com/originals/70/9d/79/709d79d4bc98574cb85e060063a7e618.jpg" alt="" />
+        <Box onClick={onClick} className={style.chatListItem}>
+            <img className={style.chatListItem_Avatar} src="https://i.ytimg.com/vi/KqkSTh9KoZY/maxresdefault.jpg" alt="" />
             <Box className={style.chatListItem_Lines}>
                 <Box className={style.chatListItem_Line}>
                     <Box className={style.chatListItem_Name}>Seto Kaiba</Box>
