@@ -59,7 +59,7 @@ function App() {
                         <ChatListItem
                             key={key}
                             data={item}
-                            active={activeChat.chatId === chatlist[key]}
+                            active={activeChat.chatId === chatlist[key].chatId}
                             onClick={() => setActiveChat(chatlist[key])}
                         />
                     ))}

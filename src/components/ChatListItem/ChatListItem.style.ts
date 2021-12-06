@@ -11,6 +11,10 @@ export const useStyles = makeStyles({
         },
     },
 
+    active: {
+        backgroundColor: "#EBEBEB"
+    },
+
     chatListItem_Avatar: {
         width: "50px",
         height: "50px",
@@ -56,10 +60,10 @@ export const useStyles = makeStyles({
         width: "100%"
     },
 
-    chatListItem_LastMsg_p: {
+    chatListItem_LastMsg_p: { //responsável pra deixar os "..." na ChatList e não da Overflow
         overflow: "hidden",
-        whiteSpace: "nowrap",
-        textOverflow: "ellipsis",
+        whiteSpace: "nowrap", 
+        textOverflow: "ellipsis", 
         margin: 0
     }
 });

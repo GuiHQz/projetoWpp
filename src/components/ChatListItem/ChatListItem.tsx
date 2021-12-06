@@ -13,7 +13,7 @@ export const ChatListItem: React.FC<onClickAction> = ({ onClick, active, data })
     const style = useStyles();
 
     return (
-        <Box onClick={onClick} className={style.chatListItem}>
+        <Box onClick={onClick} className={`${style.chatListItem} ${active?style.active:''}`}>
             <img className={style.chatListItem_Avatar} src={data.avatar} alt="" />
             <Box className={style.chatListItem_Lines}>
                 <Box className={style.chatListItem_Line}>
